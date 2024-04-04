@@ -280,26 +280,6 @@
                             </select>
                         </div>
 
-
-                        <?php
-
-                        // Check if the AJAX request is sent
-                        if (isset($_POST['action']) && $_POST['action'] == 'checkAppointment') {
-                            // Get the appointment date and time from the AJAX request
-                            $appointDate = $_POST['appointDate'];
-                            $appointTime = $_POST['appointTime'];
-                            $available = checkappointment($appointDate, $appointTime);
-
-                            // Send the response back to the JavaScript function
-                            if ($available) {
-                                return false;
-                            } else {
-                                return true;
-                            }
-                        }
-
-                        ?>
-
                         <p class="notavail" id="notavail" style="display: none; width: 100%; text-align: center">
                             Appointment not available. Please
                             choose another date or time.</p>
@@ -347,10 +327,10 @@
                 url: './ADMIN/functions.php',
                 type: 'POST',
                 data: { action: 'checkAppointment', appointDate: appointDate, appointTime: appointTime },
-                
+
                 success: function (response) {
                     console.log('Response from server:', response);
-                    if (response == false) { // Compare to string value
+                    if (response == false) {
                         console.log('Appointment is available.');
                         document.getElementById("avail").style.display = "block";
                         document.getElementById("enroll").style.display = "block";

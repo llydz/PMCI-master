@@ -756,13 +756,13 @@ function checkappointment($appointDate, $appointTime)
 		$count = $row['count'];
 
 		// Check if the count is between 0 and 5 (inclusive)
-		if ($count >= 0 && $count <= 5) {
+		if ($count==0) {
 			return true;
 		} else {
 			return false;
 		}
 	} else {
-		return true;
+		return false;
 	}
 }
 
