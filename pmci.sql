@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 02, 2024 at 07:09 PM
+-- Generation Time: Apr 04, 2024 at 05:48 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `account`;
 CREATE TABLE IF NOT EXISTS `account` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `account`
@@ -59,16 +59,18 @@ INSERT INTO `account` (`id`, `username`, `password`, `email`, `name`) VALUES
 DROP TABLE IF EXISTS `enrollment`;
 CREATE TABLE IF NOT EXISTS `enrollment` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `middlename` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
   `age` int NOT NULL,
   `bday` date NOT NULL,
-  `address` text COLLATE utf8mb4_general_ci NOT NULL,
+  `address` text NOT NULL,
   `contact` int NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `level` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `transfer_school` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `transfer_sy` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `referral` varchar(155) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL,
+  `transfer_school` varchar(255) NOT NULL,
+  `transfer_sy` varchar(255) NOT NULL,
+  `referral` varchar(155) NOT NULL,
   `pic` int NOT NULL,
   `psa` int NOT NULL,
   `good_moral` int NOT NULL,
@@ -76,16 +78,23 @@ CREATE TABLE IF NOT EXISTS `enrollment` (
   `ecd` int NOT NULL,
   `fee` int NOT NULL,
   `date` date NOT NULL,
-  `time` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `time` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `enrollment`
 --
 
-INSERT INTO `enrollment` (`id`, `name`, `age`, `bday`, `address`, `contact`, `email`, `level`, `transfer_school`, `transfer_sy`, `referral`, `pic`, `psa`, `good_moral`, `card`, `ecd`, `fee`, `date`, `time`) VALUES
-(1, 'fafqfqf', 6, '2018-03-02', 'f1f1ffqf1f', 12414124, '1f1f@ffqfd.asd', 'Grade 5', '', '', '', 0, 0, 0, 0, 1, 0, '2024-04-10', '1:00 PM - 2:30 PM');
+INSERT INTO `enrollment` (`id`, `firstname`, `middlename`, `lastname`, `age`, `bday`, `address`, `contact`, `email`, `level`, `transfer_school`, `transfer_sy`, `referral`, `pic`, `psa`, `good_moral`, `card`, `ecd`, `fee`, `date`, `time`) VALUES
+(1, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM'),
+(2, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM'),
+(3, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM'),
+(4, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM'),
+(5, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM'),
+(6, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM'),
+(7, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM'),
+(8, 'JET', 'D', 'SEBASTIAN', 22, '2002-02-01', 'POTRERO', 2147483647, 'A@A.COM', 'GRADE 1', '', '', '', 1, 0, 0, 0, 1, 1, '2024-04-17', '1:00 PM - 2:30 PM');
 
 -- --------------------------------------------------------
 
@@ -96,10 +105,30 @@ INSERT INTO `enrollment` (`id`, `name`, `age`, `bday`, `address`, `contact`, `em
 DROP TABLE IF EXISTS `holiday`;
 CREATE TABLE IF NOT EXISTS `holiday` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `holiday_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `holiday_name` varchar(255) NOT NULL,
   `holiday_date` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `holiday`
+--
+
+INSERT INTO `holiday` (`id`, `holiday_name`, `holiday_date`) VALUES
+(1, 'New Year\'s Day', '2024-01-01'),
+(2, 'EDSA Revolution Anniversary', '2024-02-25'),
+(3, 'Araw ng Kagitingan', '2024-04-08'),
+(4, 'Labor Day', '2024-05-01'),
+(5, 'Araw ng Kalayaan', '2024-06-12'),
+(6, 'Ninoy Aquino Day', '2024-08-21'),
+(7, 'All Saints\' Day', '2024-11-01'),
+(8, 'All Souls Day', '2024-11-02'),
+(9, 'Bonifacio Day', '2024-11-30'),
+(10, 'Feast of the Immaculate Conception of the Blessed Virgin Mary', '2024-12-08'),
+(11, 'Christmas Eve', '2024-12-24'),
+(12, 'Christmas Day', '2024-12-25'),
+(13, 'Rizal Day', '2024-12-30'),
+(14, 'New Year\'s Eve', '2024-12-31');
 
 -- --------------------------------------------------------
 
@@ -110,12 +139,12 @@ CREATE TABLE IF NOT EXISTS `holiday` (
 DROP TABLE IF EXISTS `news`;
 CREATE TABLE IF NOT EXISTS `news` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `image_path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `image_path` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text,
   `reg_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `news`
