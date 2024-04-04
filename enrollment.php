@@ -314,14 +314,11 @@
         }
         return dateString; // Return original string if format is invalid
     }
-
     function check() {
-        // Get the selected appointment date and time from the form
         var date = document.getElementById("appointdate").value;
         var appointDate = formatDateForSQL(date);
         var appointTime = document.getElementById("appointtime").value;
 
-        // Check if date or appointTime is null
         if (appointDate && appointTime) {
             $.ajax({
                 url: './ADMIN/functions.php',
@@ -330,7 +327,7 @@
 
                 success: function (response) {
                     console.log('Response from server:', response);
-                    if (response == false) {
+                    if (response === "true" || response === true) {
                         console.log('Appointment is available.');
                         document.getElementById("avail").style.display = "block";
                         document.getElementById("enroll").style.display = "block";

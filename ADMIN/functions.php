@@ -737,16 +737,17 @@ function getholidays()
 	return implode(",\n\t", $holidayArray);
 }
 
-
-function checkappointment($appointDate, $appointTime)
+function checkAppointment($appointDate, $appointTime)
 {
 	$mysqli = connect();
 	if ($mysqli === false) {
 		return "error: connection failed";
 	}
 
-	// Prepare and bind parameters to avoid SQL injection
 	$stmt = $mysqli->prepare("SELECT COUNT(*) as count FROM enrollment WHERE date=? AND time=?");
+	if (!$stmt) {
+		return "error: prepare failed";
+	}
 	$stmt->bind_param("ss", $appointDate, $appointTime);
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -755,16 +756,27 @@ function checkappointment($appointDate, $appointTime)
 		$row = $result->fetch_assoc();
 		$count = $row['count'];
 
-		// Check if the count is between 0 and 5 (inclusive)
 		if ($count >= 0 && $count <= 5) {
-			return true;
+			return true; // Appointment available
 		} else {
-			return false;
+			return false; // Appointment not available
 		}
 	} else {
-		return true;
+		return true; // Appointment available by default
 	}
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if ($_POST['action'] == 'checkAppointment') {
+		$appointDate = $_POST['appointDate'];
+		$appointTime = $_POST['appointTime'];
+		$availability = checkAppointment($appointDate, $appointTime);
+		echo json_encode($availability);
+		exit();
+	}
+}
+
+
 
 function calculateAgeFromBirthdate($birthdate)
 {
